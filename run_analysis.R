@@ -1,7 +1,7 @@
 library(dplyr)
 library(readr)
 
-### Reading activities and features
+### Reading activities and measurement
 activity <- read.table("./activity_labels.txt", header = FALSE)
 measurement <- read.table("./features.txt", header = FALSE)
 
@@ -24,8 +24,8 @@ train_body_gyro_y <- read.table("./train/Inertial Signals/body_gyro_y_train.txt"
 train_body_gyro_z <- read.table("./train/Inertial Signals/body_gyro_z_train.txt", header = FALSE)
 
 train_total_acc_x <- read.table("./train/Inertial Signals/total_acc_x_train.txt", header = FALSE)
-train_total_acc_y <- read.table("./train/Inertial Signals/total_acc_x_train.txt", header = FALSE)
-train_total_acc_z <- read.table("./train/Inertial Signals/total_acc_x_train.txt", header = FALSE)
+train_total_acc_y <- read.table("./train/Inertial Signals/total_acc_y_train.txt", header = FALSE)
+train_total_acc_z <- read.table("./train/Inertial Signals/total_acc_z_train.txt", header = FALSE)
 
 
 ### Reading testing data
@@ -46,11 +46,11 @@ test_body_gyro_y <- read.table("./test/Inertial Signals/body_gyro_y_test.txt", h
 test_body_gyro_z <- read.table("./test/Inertial Signals/body_gyro_z_test.txt", header = FALSE)
 
 test_total_acc_x <- read.table("./test/Inertial Signals/total_acc_x_test.txt", header = FALSE)
-test_total_acc_y <- read.table("./test/Inertial Signals/total_acc_x_test.txt", header = FALSE)
-test_total_acc_z <- read.table("./test/Inertial Signals/total_acc_x_test.txt", header = FALSE)
+test_total_acc_y <- read.table("./test/Inertial Signals/total_acc_y_test.txt", header = FALSE)
+test_total_acc_z <- read.table("./test/Inertial Signals/total_acc_z_test.txt", header = FALSE)
 
 
-### (1) Merging train data and test data
+### Request #1: Merging train data and test data
 merged_data <- rbind(train_data, test_data)
 merge_activity <- rbind(train_activity, test_activity)
 merge_subject <- rbind(train_subject, test_subject)
@@ -100,12 +100,12 @@ merged_total_acc_y <- merged_total_acc_y %>% arrange(Subject, Activity)
 merged_total_acc_z <- merged_total_acc_z %>% arrange(Subject, Activity)
 
 
-### (2) Extracting mean and std values of data set
+### Request #2: Extracting mean and std values of data set
 extracted_ind <- grep(".mean.|.std.", measurement$V2)
 extracted_data <- merged_data %>% select(Subject, Activity, extracted_ind+2)
 
 
-### (3) Uses descriptive activity names to name the activities in the data set
+### Request #3: Using descriptive activity names to name the activities in the data set
 colnames(activity) <- c("Activity", "Activity_Str")
 converted_data <- merge(extracted_data, activity, by = "Activity")
 converted_data <- converted_data %>% 
@@ -114,13 +114,13 @@ converted_data <- converted_data %>%
                   arrange(Subject)
                   
 
-### (4) Rename data set with descriptive variable names
+### Request #4: Renaming data set with descriptive variable names
 col_of_interest <- names(converted_data)[3:length(converted_data)]
 var_names <- measurement[parse_number(col_of_interest), "V2"]
 names(converted_data)[3:length(converted_data)] <- as.character(var_names)
 
 
-### (5) creates a second, independent tidy data set with the average of each variable 
+### Request #5: Creating a second, independent tidy data set with the average of each variable 
 ### for each activity and each subject.
 mean_grouped_data <-  converted_data %>% group_by(Subject, Activity) %>% summarize_each(funs(mean))
 write.table(mean_grouped_data, "./tidy_data_set.txt", row.name=FALSE)
