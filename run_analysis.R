@@ -1,6 +1,3 @@
-setwd("F:\\SkyDrive\\Online Courses\\John Hopkins\\Data Science Specilization\\Getting and Cleaning Data\\final\\UCI HAR Dataset")
-getwd()
-install.packages("dplyr")
 library(dplyr)
 library(readr)
 
