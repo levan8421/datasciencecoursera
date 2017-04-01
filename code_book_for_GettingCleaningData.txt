@@ -1,0 +1,120 @@
+activity
+	activity_labels.txt
+	activities performed by subjects, including walking, walking_upstairs, walking_downstairs, sitting, standing, laying
+measurement
+	features.txt
+	measurement features estimated from the collected training and testing data, including mean, std, mad, min, max, etc.
+
+train_data
+	train/X_train.txt
+	training data collected from training subjects
+train_activity
+	train/y_train.txt
+	activities performed by training subjects
+train_subject
+	train/subject_train.txt
+	subjects selected for training
+train_body_acc_x
+	train/Inertial Signals/body_acc_x_train.txt
+	body acceleration signal x-axis from training subjects
+train_body_acc_y
+	train/Inertial Signals/body_acc_y_train.txt
+	body acceleration signal y-axis from training subjects
+train_body_acc_z
+	train/Inertial Signals/body_acc_z_train.txt
+	body acceleration signal z-axis from training subjects
+train_body_gyro_x
+	train/Inertial Signals/body_gyro_x_train.txt
+	angular velocity vector by gyroscope x-axis from training subjects
+train_body_gyro_y
+	train/Inertial Signals/body_gyro_y_train.txt
+	angular velocity vector by gyroscope y-axis from training subjects
+train_body_gyro_z
+	train/Inertial Signals/body_gyro_z_train.txt
+	angular velocity vector by gyroscope z-axis from training subjects
+train_total_acc_x
+	train/Inertial Signals/total_acc_x_train.txt
+	acceleration signal by accelerometer x-axis from training subjects
+train_total_acc_y
+	train/Inertial Signals/total_acc_y_train.txt
+	acceleration signal by accelerometer y-axis from training subjects
+train_total_acc_z
+	train/Inertial Signals/total_acc_z_train.txt
+	acceleration signal by accelerometer z-axis from training subjects
+
+test_data
+	test/X_test.txt
+	testing data collected from testing subjects
+test_activity
+	train/y_test.txt
+	activities performed by testing subjects
+test_subject
+	test/subject_test.txt
+	subjects selected for testing
+test_body_acc_x
+	test/Inertial Signals/body_acc_x_test.txt
+	body acceleration signal x-axis from testing subjects
+test_body_acc_y
+	test/Inertial Signals/body_acc_y_test.txt
+	body acceleration signal y-axis from testing subjects
+test_body_acc_z
+	test/Inertial Signals/body_acc_z_test.txt
+	body acceleration signal z-axis from testing subjects
+test_body_gyro_x
+	test/Inertial Signals/body_gyro_x_test.txt
+	angular velocity vector by gyroscope x-axis from testing subjects
+test_body_gyro_y
+	test/Inertial Signals/body_gyro_y_test.txt
+	angular velocity vector by gyroscope y-axis from testing subjects
+test_body_gyro_z
+	test/Inertial Signals/body_gyro_z_test.txt
+	angular velocity vector by gyroscope z-axis from testing subjects
+test_total_acc_x
+	test/Inertial Signals/total_acc_x_test.txt
+	acceleration signal by accelerometer x-axis from testing subjects
+test_total_acc_y
+	test/Inertial Signals/total_acc_y_test.txt
+	acceleration signal by accelerometer y-axis from testing subjects
+test_total_acc_z
+	test/Inertial Signals/total_acc_z_test.txt
+	acceleration signal by accelerometer z-axis from testing subjects
+
+merged_data
+	data merged from training data and testing data 
+merge_activity
+	activities of all training subjects and testing subjects
+merge_subject
+	all training subjects and testing subjects
+merged_body_acc_x
+	body acceleration signal x-axis merged from training subjects and testing subjects
+merged_body_acc_y
+	body acceleration signal y-axis merged from training subjects and testing subjects
+merged_body_acc_z
+	body acceleration signal z-axis merged from training subjects and testing subjects
+merged_body_gyro_x
+	angular velocity vector by gyroscope x-axis from training subjects and testing subjects
+merged_body_gyro_y
+	angular velocity vector by gyroscope y-axis from training subjects and testing subjects
+merged_body_gyro_z
+	angular velocity vector by gyroscope z-axis from training subjects and testing subjects
+merged_total_acc_x
+	acceleration signal by accelerometer x-axis from training subjects and testing subjects
+merged_total_acc_y
+	acceleration signal by accelerometer y-axis from training subjects and testing subjects
+merged_total_acc_z
+	acceleration signal by accelerometer z-axis from training subjects and testing subjects
+
+extracted_ind
+	indices of mean() and std() from measurement features 
+extracted_data
+	mean() and std() measurement features from the collected data
+
+converted_data
+	data set with descriptive activities names as variables
+col_of_interest
+	columns of converted_data needed to update with descriptive names
+var_names
+	names used to update variables of converted_data
+mean_grouped_data
+	independent tidy data set with the average of each variable for each activity and each subject
+
